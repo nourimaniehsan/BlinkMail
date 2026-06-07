@@ -1,0 +1,16 @@
+{
+  "to": [{ "address": "cloud-x82m@spike.green", "name": "Cloud" }],
+  "from": { "address": "login@example.com", "name": "Example Login" },
+  "subject": "ForwardEmail sample",
+  "text": "Your sign in code is 73921.",
+  "html": "<p>Your sign in code is <b>73921</b>.</p>",
+  "messageId": "forwardemail-sample-001",
+  "attachments": [
+    {
+      "filename": "receipt.txt",
+      "contentType": "text/plain",
+      "size": 128
+    }
+  ]
+}
+

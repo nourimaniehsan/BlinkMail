@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  background: #050711;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: #050711;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  background:
+    radial-gradient(circle at 10% 15%, rgba(37, 99, 235, 0.34), transparent 34rem),
+    radial-gradient(circle at 88% 0%, rgba(124, 58, 237, 0.26), transparent 28rem),
+    linear-gradient(180deg, #050711 0%, #080a16 54%, #050711 100%);
+  color: rgb(248 250 252);
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(96, 165, 250, 0.45);
+}
+
+.glass {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.055));
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(20px);
+}
+
+.mail-html {
+  color: rgb(226 232 240);
+}
+
+.mail-html a {
+  color: rgb(147 197 253);
+  text-decoration: underline;
+}
+
+.mail-html img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+

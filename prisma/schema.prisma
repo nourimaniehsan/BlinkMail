@@ -1,0 +1,78 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Mailbox {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  address   String   @unique
+  domain    String
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  emails Email[]
+
+  @@index([token])
+  @@index([address])
+}
+
+model Email {
+  id          String   @id @default(cuid())
+  mailboxId   String
+  mailbox     Mailbox  @relation(fields: [mailboxId], references: [id], onDelete: Cascade)
+  messageId   String?
+  fromAddress String
+  fromName    String?
+  toAddress   String
+  subject     String
+  textBody    String?
+  htmlBody    String?
+  detectedOtp String?
+  rawPayload   Json?
+  receivedAt  DateTime @default(now())
+  createdAt   DateTime @default(now())
+
+  attachments Attachment[]
+
+  @@index([mailboxId, receivedAt])
+  @@index([messageId])
+}
+
+model Attachment {
+  id          String   @id @default(cuid())
+  emailId     String
+  email       Email    @relation(fields: [emailId], references: [id], onDelete: Cascade)
+  filename    String
+  contentType String?
+  size        Int?
+  url         String?
+  createdAt   DateTime @default(now())
+}
+
+model AbuseReport {
+  id          String   @id @default(cuid())
+  email       String?
+  mailbox     String?
+  message     String
+  ipAddress   String?
+  userAgent   String?
+  status      String   @default("open")
+  createdAt   DateTime @default(now())
+}
+
+model RateLimitEvent {
+  id        String   @id @default(cuid())
+  key       String
+  action    String
+  ipAddress String?
+  createdAt DateTime @default(now())
+
+  @@index([key, action, createdAt])
+}
+

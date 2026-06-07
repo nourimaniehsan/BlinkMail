@@ -1,0 +1,11 @@
+{
+  "recipient": "cloud-x82m@spike.green",
+  "sender": "alerts@example.com",
+  "from": "Example Alerts <alerts@example.com>",
+  "subject": "Mailgun test code 482901",
+  "body-plain": "Your BlinkMail test code is 482901.",
+  "body-html": "<p>Your BlinkMail test code is <strong>482901</strong>.</p>",
+  "Message-Id": "mailgun-sample-001",
+  "timestamp": "1760000000"
+}
+

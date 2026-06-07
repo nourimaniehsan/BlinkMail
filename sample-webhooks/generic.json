@@ -1,0 +1,9 @@
+{
+  "recipient": "cloud-x82m@spike.green",
+  "fromAddress": "noreply@example.net",
+  "fromName": "Example App",
+  "subject": "Generic webhook sample",
+  "textBody": "Code: 864209",
+  "htmlBody": "<p>Code: <strong>864209</strong></p>",
+  "messageId": "generic-sample-001"
+}
